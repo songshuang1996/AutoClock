@@ -103,6 +103,16 @@ class AutoDaka:
         except Exception as error:
             print('write inSchool Information wrong...\n', error)
         time.sleep(1)
+        
+        # 所在校区
+        try:
+            campus = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[1]/div/section/div[4]/ul/li[5]/div/div/div[1]/span[1]")))
+            campus.click()
+            #print('所在校区已提交')
+        except Exception as error:
+            print('write campus Information wrong...\n', error)
+        time.sleep(1)
 
         # 是否在实习
         print("实习信息填写中...")
@@ -113,6 +123,18 @@ class AutoDaka:
             print("实习信息已提交")
         except Exception as error:
             print('write inPractice Information wrong...\n', error)
+        
+        time.sleep(1)
+        
+        # 健康码颜色
+        print("健康码颜色填写中...")
+        try:
+            inPractice =  WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[1]/div/section/div[4]/ul/li[22]/div/div/div[1]/span[1]")))
+            inPractice.click()
+            #print("健康码颜色已提交")
+        except Exception as error:
+            print('write healthcode Information wrong...\n', error)
         
         time.sleep(1)
 
